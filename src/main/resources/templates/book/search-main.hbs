@@ -1,7 +1,7 @@
 {{#partial "page-body"}}
   <div class="jumbotron">
-    <div class="container">
-      <h1 class="display-3">Book Search</h1>
+    <div class="container mt-5">
+      <h1 class="display-5">Book Search</h1>
       <p>This is book search web service.</p>
       <p><a class="btn btn-primary btn-lg" href="/hello" role="button">Learn more »</a></p>
     </div>
@@ -34,18 +34,15 @@
 {{/partial}}
 {{#partial "page-script"}}
   <script type="text/javascript">
+    var isGuest = {{needLogin}};
     $('#more').on('click', function () {
-      var val = 'name';
+      if (isGuest) {
+        alert('로그인 후 진행해 주세요.');
+        return;
+      }
       $.ajax({
-        url: '/member/create',
-        type: 'post',
-        contentType: 'application/json',
-        data: {
-          name: val,
-          email: val,
-          password: val,
-          confirmPassword: val
-        },
+        url: '/member/profile',
+        type: 'GET',
         success: function (result) {
           if (result.success) {
             alert(result.message);
@@ -55,18 +52,6 @@
           }
         }
       });
-      // $.ajax({
-      //   url: '/member/profile',
-      //   type: 'GET',
-      //   success: function (result) {
-      //     if (result.success) {
-      //       alert(result.message);
-      //       location.href = "/home";
-      //     } else {
-      //       alert(result.message);
-      //     }
-      //   }
-      // });
     });
   </script>
 {{/partial}}

@@ -14,14 +14,11 @@ import java.util.List;
 @Getter
 @Setter
 public class SecurityMember extends User {
-	private static final String ROLE_PREFIX = "ROLE_";
-	private static final long serialVersionUID = 1L;
-
 	public SecurityMember(Member member) {
 		super(member.getEmail(), member.getPassword(), makeGrantedAuthority(member.getRole()));
 	}
 
 	private static List<GrantedAuthority> makeGrantedAuthority(RoleType role){
-		return Lists.newArrayList(new SimpleGrantedAuthority(ROLE_PREFIX + role.name()));
+		return Lists.newArrayList(new SimpleGrantedAuthority(role.name()));
 	}
 }

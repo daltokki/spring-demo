@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum RoleType {
-	ACTIVE_MEMBER("일반 사용자"), INACTIVE_MEMBER("휴면 사용자");
+	ROLE_ACTIVE_MEMBER("member"), ROLE_INACTIVE_MEMBER("non-member"), ROLE_ANONYMOUS("guest");
 
 	private String desc;
 }

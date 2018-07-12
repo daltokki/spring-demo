@@ -33,7 +33,7 @@ public class MemberService {
 
 		Member member = Member.create(memberRequestForm.getEmail(), passwordEncoder.encode(memberRequestForm.getPassword()),
 			new StringJoiner(",").add(memberRequestForm.getFirstName()).add(memberRequestForm.getLastName()).toString(),
-			RoleType.ACTIVE_MEMBER);
+			RoleType.ROLE_ACTIVE_MEMBER);
 
 		memberRepository.save(member);
 	}

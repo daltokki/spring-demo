@@ -1,7 +1,6 @@
 package com.book.repository.entity;
 
 import com.book.repository.value.RoleType;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
