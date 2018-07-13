@@ -14,8 +14,12 @@ import java.util.Map;
 
 @Component
 public class ApiClientUtils {
+	private final RestTemplate restTemplate;
+
 	@Autowired
-	private RestTemplate restTemplate;
+	public ApiClientUtils(RestTemplate restTemplate) {
+		this.restTemplate = restTemplate;
+	}
 
 	private HttpEntity<String> getHttpEntity(String authKey) {
 		HttpHeaders headers = new HttpHeaders();
